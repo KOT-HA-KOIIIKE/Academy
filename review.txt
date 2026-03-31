@@ -1,0 +1,69 @@
+МЕТА-ОПИСАНИЕ:
+✅ Выясняем все, что связано с термином «Deep learning»: кто, когда и для чего его придумал, как его понимают и зачем он нужен.
+
+ХАБР:
+✅ Нет приветствия для Хабра
+
+⚠️ Есть ссылки на Хабр:
+постулате обучения Хебба | https://habr.com/ru/articles/102305/
+гениальный беспризорник и профессор | https://habr.com/ru/companies/sberdevices/articles/525508/
+
+БАННЕР:
+✅ Есть баннер
+
+ЧИТАЙТЕ ТАКЖЕ:
+❌ Нет блока ЧИТАЙТЕ ТАКЖЕ
+
+ССЫЛКИ НА ПОЛЯХ:
+❌ Нет ссылки на полях
+
+МЕТКИ:
+1. Нейросети и ML
+
+ИЗОБРАЖЕНИЯ:
+1. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image5-8-1525x692.png | ✅ Есть скругление
+2. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image55.png | ✅ Есть скругление
+3. Перевод: «Иваненко часто упоминается как отец глубокого обучения». | https://selectel.ru/blog/wp-content/uploads/2024/10/image77.png | ✅ Есть скругление
+4. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image81.jpg | ✅ Есть скругление
+5. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image76.png | ✅ Есть скругление
+6. Здесь авторы говорят, что «кратко объяснят происхождение глубокого обучения». | https://selectel.ru/blog/wp-content/uploads/2024/10/image64.png | ✅ Есть скругление
+7. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image100.png | ✅ Есть скругление
+8. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image85.png | ✅ Есть скругление
+9. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image19-1.png | ✅ Есть скругление
+10. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image24-1.png | ✅ Есть скругление
+11. Книга «Deep Learning». Ian Goodfellow, Yoshua Bengio, Aaron Courville. | https://selectel.ru/blog/wp-content/uploads/2024/10/image44.jpg | ✅ Есть скругление
+12. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image66-1525x864.png | ✅ Есть скругление
+13. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image98.png | ✅ Есть скругление
+14. Книга «Как учится машина». Ян Лекун. | https://selectel.ru/blog/wp-content/uploads/2024/10/image93.png | ✅ Есть скругление
+15. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image84.png | ✅ Есть скругление
+16. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image11-5-1525x503.png | ✅ Есть скругление
+17. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image23-1-1525x1147.png | ✅ Есть скругление
+18. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image45-1525x859.png | ✅ Есть скругление
+19. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image89.jpg | ✅ Есть скругление
+20. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image69-1525x1061.png | ✅ Есть скругление
+21. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image63-1525x353.png | ✅ Есть скругление
+22. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image29-1525x841.png | ✅ Есть скругление
+23. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image8-7-1525x817.png | ❌ Нет скругления
+24. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image41.png | ✅ Есть скругление
+25. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image7-1-1.png | ✅ Есть скругление
+26. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image30.png | ✅ Есть скругление
+27. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image83.png | ✅ Есть скругление
+28. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image32-1525x803.png | ✅ Есть скругление
+29. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image31.png | ✅ Есть скругление
+30. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image99-1525x637.png | ✅ Есть скругление
+31. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image86.png | ✅ Есть скругление
+32. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image91.png | ✅ Есть скругление
+33. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image59.png | ✅ Есть скругление
+34. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image101.png | ✅ Есть скругление
+35. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image58.png | ✅ Есть скругление
+36. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image78.png | ✅ Есть скругление
+37. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image62.png | ✅ Есть скругление
+38. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image74.png | ✅ Есть скругление
+39. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image68.png | ✅ Есть скругление
+40. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image72-1525x858.png | ✅ Есть скругление
+41. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image12-4.png | ✅ Есть скругление
+42. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image3-1-1-1-1-1063x1525.png | ✅ Есть скругление
+43. ❌ alt отсутствует | https://selectel.ru/blog/wp-content/uploads/2024/10/image10-5.png | ✅ Есть скругление
+
+ССЫЛКИ:
+такую | https://www.scholarpedia.org/article/Deep_Learning | ❌ открывается в той же вкладке
