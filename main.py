@@ -29,6 +29,22 @@ content = wait.until(
    EC.presence_of_element_located((By.CSS_SELECTOR, "div.article-content_content"))
 )
 
+# Курсив
+italic_elements = content.find_elements(By.TAG_NAME, "em")
+italic_texts = []
+
+for el in italic_elements:
+   try:
+       # если внутри figcaption — пропускаем
+       el.find_element(By.XPATH, "./ancestor::figcaption")
+       continue
+   except:
+       pass
+
+   text = el.text.strip()
+   if text:
+       italic_texts.append(text)
+
 # Проверка текста на "Привет, Хабр"
 page_text = content.text
 has_habr_greeting = "Привет, Хабр" in page_text
@@ -112,16 +128,22 @@ with open("review.txt", "w", encoding="utf-8") as file:
    else:
        file.write("❌ Нет мета-описания\n")
 
-   # Хабр-паттерны
-   file.write("\nХАБР:\n")
+   # Курсив
+   file.write("\nКУРСИВ:\n")
+   if italic_texts:
+       file.write("❌ Есть курсив:\n")
+       for i, text in enumerate(italic_texts, start=1):
+           file.write(f"{i}. {text}\n")
+   else:
+       file.write("✅ Нет курсива\n")
 
-   # Приветствие
+   # Хабр
+   file.write("\nХАБР:\n")
    if has_habr_greeting:
        file.write("❌ Приветствие для Хабра\n")
    else:
        file.write("✅ Нет приветствия для Хабра\n")
 
-   # Ссылки на Хабр
    if habr_links:
        file.write("\n⚠️ Есть ссылки на Хабр:\n")
        for link in habr_links:
@@ -171,5 +193,5 @@ print(f"Ссылка на полях: {side_link_exists}")
 print(f"Метки: {len(tags)}")
 print(f"Изображений: {len(images)}")
 print(f"Ссылок: {len(links)}")
-
+print(f"Курсив: {len(italic_texts)}")
 driver.quit()
