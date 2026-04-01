@@ -1,0 +1,175 @@
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import os
+
+# Путь к HTML-файлу
+file_path = r"C:\Users\shilov.a\Downloads\buscase.html"
+
+# Преобразуем в file:// URL
+file_url = "file:///" + os.path.abspath(file_path).replace("\\", "/")
+
+options = Options()
+options.add_argument("--start-maximized")
+
+driver = webdriver.Chrome(options=options)
+driver.get(file_url)
+
+wait = WebDriverWait(driver, 10)
+
+# Мета-описание
+meta_description = None
+
+try:
+    meta = driver.find_element(By.CSS_SELECTOR, "meta[name='description']")
+    meta_description = meta.get_attribute("content")
+except:
+    meta_description = None
+
+# Контейнер
+content = wait.until(
+    EC.presence_of_element_located((By.CSS_SELECTOR, "div.article-content_content"))
+)
+
+# Курсив
+italic_elements = content.find_elements(By.TAG_NAME, "em")
+italic_texts = []
+
+for el in italic_elements:
+    try:
+        el.find_element(By.XPATH, "./ancestor::figcaption")
+        continue
+    except:
+        pass
+
+    text = el.text.strip()
+    if text:
+        italic_texts.append(text)
+
+# Хабр
+page_text = content.text
+has_habr_greeting = "Привет, Хабр" in page_text
+
+links = content.find_elements(By.TAG_NAME, "a")
+habr_links = []
+
+for link in links:
+    href = link.get_attribute("href") or ""
+    text = link.text.strip()
+
+    if "habr.com" in href:
+        if not text:
+            text = "[без текста]"
+        habr_links.append(f"{text} | {href}")
+
+# Баннер
+banner_exists = len(content.find_elements(By.CSS_SELECTOR, "h2.promo-link_title")) > 0
+
+# Читайте также
+read_also_exists = len(content.find_elements(By.CSS_SELECTOR, "h5.read-also__articles-title")) > 0
+
+# Ссылка на полях
+side_link_exists = len(content.find_elements(
+    By.CSS_SELECTOR,
+    "a.columns-flex_right-link, a.columns-flex_big-link"
+)) > 0
+
+# Метки
+tag_elements = content.find_elements(By.CSS_SELECTOR, "a.tag.f-12")
+tags = [tag.text.strip() for tag in tag_elements if tag.text.strip()]
+
+# Изображения
+images = content.find_elements(By.TAG_NAME, "img")
+image_results = []
+
+for i, img in enumerate(images, start=1):
+    alt = img.get_attribute("alt")
+    src = img.get_attribute("src") or img.get_attribute("data-src")
+
+    try:
+        figure = img.find_element(By.XPATH, "./ancestor::figure[1]")
+        figure_class = figure.get_attribute("class") or ""
+        rounded = "✅ Есть скругление" if "is-style-rounded" in figure_class else "❌ Нет скругления"
+    except:
+        rounded = "❌ Нет скругления"
+
+    alt_text = alt if alt and alt.strip() else "❌ alt отсутствует"
+    image_results.append(f"{i}. {alt_text} | {src} | {rounded}")
+
+# Ссылки
+bad_links = []
+
+tag_block = content.find_elements(By.CSS_SELECTOR, "div.article-content-tag-block")
+tag_block_element = tag_block[0] if tag_block else None
+
+for link in links:
+    if tag_block_element:
+        try:
+            link.find_element(By.XPATH, "./ancestor::div[contains(@class, 'article-content-tag-block')]")
+            continue
+        except:
+            pass
+
+    target = link.get_attribute("target")
+    href = link.get_attribute("href")
+    text = link.text.strip()
+
+    if target != "_blank":
+        if not text:
+            text = "[без текста]"
+        bad_links.append(f"{text} | {href} | ❌ открывается в той же вкладке")
+
+# Запись в файл
+with open("review.txt", "w", encoding="utf-8") as file:
+    file.write("МЕТА-ОПИСАНИЕ:\n")
+    file.write(f"✅ {meta_description}\n" if meta_description else "❌ Нет мета-описания\n")
+
+    file.write("\nКУРСИВ:\n")
+    if italic_texts:
+        file.write("❌ Есть курсив:\n")
+        for i, text in enumerate(italic_texts, 1):
+            file.write(f"{i}. {text}\n")
+    else:
+        file.write("✅ Нет курсива\n")
+
+    file.write("\nХАБР:\n")
+    file.write("❌ Приветствие для Хабра\n" if has_habr_greeting else "✅ Нет приветствия для Хабра\n")
+
+    if habr_links:
+        file.write("\n⚠️ Есть ссылки на Хабр:\n")
+        for link in habr_links:
+            file.write(link + "\n")
+    else:
+        file.write("\n✅ Нет ссылок на Хабр\n")
+
+    file.write("\nБАННЕР:\n")
+    file.write("✅ Есть баннер\n" if banner_exists else "❌ Нет баннера\n")
+
+    file.write("\nЧИТАЙТЕ ТАКЖЕ:\n")
+    file.write("✅ Есть блок ЧИТАЙТЕ ТАКЖЕ\n" if read_also_exists else "❌ Нет блока ЧИТАЙТЕ ТАКЖЕ\n")
+
+    file.write("\nССЫЛКИ НА ПОЛЯХ:\n")
+    file.write("✅ Есть ссылка на полях\n" if side_link_exists else "❌ Нет ссылки на полях\n")
+
+    file.write("\nМЕТКИ:\n")
+    if tags:
+        for i, tag in enumerate(tags, 1):
+            file.write(f"{i}. {tag}\n")
+    else:
+        file.write("❌ Нет меток\n")
+
+    file.write("\nИЗОБРАЖЕНИЯ:\n")
+    for line in image_results:
+        file.write(line + "\n")
+
+    file.write("\nССЫЛКИ:\n")
+    if not bad_links:
+        file.write("✅ Все ссылки открываются в новой вкладке\n")
+    else:
+        for line in bad_links:
+            file.write(line + "\n")
+
+print("Проверка завершена")
+driver.quit()
